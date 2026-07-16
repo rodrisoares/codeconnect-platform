@@ -68,6 +68,7 @@ O **Code Connect** oferece uma experiência completa de rede social para quem cr
 - **[JWT](https://jwt.io/)** + **[bcrypt](https://www.npmjs.com/package/bcrypt)**: Autenticação e hash de senhas.
 - **[Swagger](https://swagger.io/)**: Documentação interativa da API (`/api`).
 - **[Helmet](https://helmetjs.github.io/)** + **[Throttler](https://docs.nestjs.com/security/rate-limiting)**: Segurança e rate limiting.
+- **[Jest](https://jestjs.io/)**: Testes unitários.
 - **TypeScript** em todo o backend.
 
 ---

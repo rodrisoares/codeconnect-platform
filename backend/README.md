@@ -27,6 +27,7 @@ O Code Connect é uma plataforma onde desenvolvedores compartilham conteúdo sob
 - **[@nestjs/throttler](https://docs.nestjs.com/security/rate-limiting)** — Rate limiting
 - **[class-validator / class-transformer](https://github.com/typestack/class-validator)** — Validação de DTOs
 - **[Multer](https://github.com/expressjs/multer)** — Upload de arquivos
+- **[Jest](https://jestjs.io/)** — Testes unitários
 - **[TypeScript](https://www.typescriptlang.org/)**
 
 ## ⚡ Como Rodar o Projeto
@@ -249,9 +250,6 @@ npm run test
 # Testes com cobertura
 npm run test:cov
 
-# Testes e2e
-npm run test:e2e
-
 # Prisma — gerar client
 npx prisma generate
 
@@ -266,6 +264,21 @@ npx prisma studio
 
 # Rodar o seed novamente
 npx prisma db seed
+```
+
+## ✅ Testes
+
+Os testes são escritos com **Jest** e **ts-jest**. As suítes unitárias cobrem os serviços de domínio (`auth`, `posts` e `comments`), localizadas ao lado do código em arquivos `*.spec.ts`.
+
+```bash
+# Rodar os testes unitários
+npm run test
+
+# Modo watch (re-executa ao salvar)
+npm run test:watch
+
+# Relatório de cobertura (gerado em ./coverage)
+npm run test:cov
 ```
 
 ## 🔄 Desenvolvimento
