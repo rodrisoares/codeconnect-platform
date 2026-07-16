@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root,
+:root[data-theme='dark'] {
+  --highlight-green: #81FE88;
+  --pastel-green: #BFFFC3;
+  --petrol-green: #132E35;
+
+  --graphite: #01080E;
+
+  --dark-gray: #171D1F;
+  --gray: #3E3E3F;
+  --medium-gray: #888888;
+  --light-gray: #BCBCBC;
+
+  --offwhite: #E1E1E1;
+  --white: #FFFFFF;
+
+  color-scheme: dark;
+}
+
+/* Tema claro: sobrescreve as variáveis semânticas, então os componentes
+   existentes se adaptam sem mudanças individuais. */
+:root[data-theme='light'] {
+  --highlight-green: #1F9D57;
+  --pastel-green: #2FB86A;
+  --petrol-green: #D6EFE0;
+
+  --graphite: #F4F6F6;
+
+  --dark-gray: #FFFFFF;
+  --gray: #D7DCDC;
+  --medium-gray: #5F6B6B;
+  --light-gray: #3A4444;
+
+  --offwhite: #10201B;
+  --white: #01080E;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  background-color: var(--graphite);
+  margin: 0;
+  transition: background-color 0.25s ease;
+}

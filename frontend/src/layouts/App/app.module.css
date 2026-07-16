@@ -1,0 +1,29 @@
+.app {
+    display: flex;
+    height: 100vh;
+    gap: 24px;
+    width: 100%;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Área que realmente rola; o Header fica fora dela, portanto fixo no topo */
+.scroll {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding-top: 8px;
+}
+
+/* Adicionar espaço para o rodapé fixo em telas menores */
+@media (max-width: 999px) {
+    .app {
+        padding-bottom: 80px;
+    }
+}

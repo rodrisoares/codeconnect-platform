@@ -1,0 +1,198 @@
+.card {
+    width: 100%;
+    border-radius: 8px;
+    background: var(--dark-gray);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.header {
+    border-radius: 8px 8px 0px 0px;
+    background: var(--medium-gray);
+    padding: 24px;
+}
+
+.header figure {
+    margin: 0;
+    position: relative;
+}
+
+.figure {
+    height: 133px;
+}
+
+.figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.body {
+    color: var(--light-gray);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.body h2 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    margin: 0;
+}
+
+.body p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.body a {
+    text-decoration: none;
+    color: var(--light-gray);
+    margin: 16px 0;
+}
+
+.body a:hover {
+    opacity: 0.8;
+}
+
+/* Título vira link "esticado" que cobre o card inteiro */
+.body h2 a.stretched {
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+}
+
+.stretched::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.body h2 a.stretched:hover {
+    color: var(--highlight-green);
+    opacity: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--petrol-green);
+    color: var(--highlight-green);
+    white-space: nowrap;
+}
+
+.meta {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--medium-gray);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.footer {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Fica acima do link esticado para manter o autor clicável */
+    position: relative;
+    z-index: 1;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--medium-gray);
+    font-size: 14px;
+}
+
+.likeBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--medium-gray);
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.likeBtn:hover {
+    color: var(--highlight-green);
+    background: var(--petrol-green);
+}
+
+.likeBtn.liked {
+    color: var(--highlight-green);
+}
+
+/* Preenche o ícone quando curtido */
+.likeBtn.liked svg path {
+    fill: var(--highlight-green);
+}
+
+.likeBtn.bookmarked {
+    color: var(--highlight-green);
+}
+
+.likeBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--medium-gray);
+    font-size: 15px;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    cursor: pointer;
+}

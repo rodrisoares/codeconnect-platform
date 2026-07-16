@@ -1,0 +1,134 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title {
+    margin: 0;
+    font-size: 26px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: var(--medium-gray);
+    max-width: 480px;
+    transition: border-color 0.2s ease;
+}
+
+.searchBox:focus-within {
+    border-color: var(--highlight-green);
+}
+
+.searchBox input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--offwhite);
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.searchBox input::placeholder {
+    color: var(--medium-gray);
+}
+
+.hint {
+    margin: 4px 0 -4px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.15s ease;
+}
+
+.card:hover {
+    border-color: var(--highlight-green);
+}
+
+.cardLink {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    text-decoration: none;
+    flex: 1;
+    min-width: 0;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.name {
+    margin: 0;
+    font-size: 16px;
+}
+
+.username {
+    color: var(--medium-gray);
+    font-size: 13px;
+}
+
+.bio {
+    color: var(--light-gray);
+    font-size: 13px;
+    margin: 4px 0 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.followers {
+    color: var(--medium-gray);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.action {
+    flex-shrink: 0;
+}
+
+.empty {
+    padding: 48px;
+    text-align: center;
+    border: 1px dashed var(--gray);
+    border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

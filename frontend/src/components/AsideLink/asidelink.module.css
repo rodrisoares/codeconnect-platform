@@ -1,0 +1,64 @@
+.asidelink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--medium-gray);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.asidelink svg {
+    flex-shrink: 0;
+}
+
+.asidelink:visited {
+    color: var(--medium-gray);
+}
+
+.asidelink svg path {
+    transition: fill 0.2s;
+}
+
+.asidelink:hover {
+    color: var(--white);
+    background: var(--gray);
+}
+
+.asidelink:hover svg path {
+    fill: var(--white);
+}
+
+/* Rota atual selecionada */
+.asidelink.active,
+.asidelink.active:visited {
+    color: var(--highlight-green);
+}
+
+.asidelink.active svg path {
+    fill: var(--highlight-green);
+}
+
+/* Estilos para mobile - rodapé navigation (ícone em cima, rótulo embaixo) */
+@media (max-width: 999px) {
+    .asidelink {
+        flex-direction: column;
+        width: auto;
+        gap: 4px;
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    .asidelink:hover {
+        background: transparent;
+    }
+
+    .asidelink svg {
+        width: 20px;
+        height: 20px;
+    }
+}

@@ -1,0 +1,183 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 16px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.head strong {
+    color: var(--offwhite);
+}
+
+.date {
+    color: var(--medium-gray);
+    font-size: 13px;
+}
+
+.tools {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+
+.tools button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--medium-gray);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.tools button:hover {
+    color: var(--offwhite);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tools .danger {
+    color: #c0392b;
+}
+
+.tools .danger:hover {
+    background: rgba(192, 57, 43, 0.12);
+}
+
+.text {
+    margin: 0;
+    color: var(--light-gray);
+}
+
+.editArea {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editInput {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    background: var(--graphite);
+    color: var(--offwhite);
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.editActions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.editActions button {
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.cancel {
+    background: transparent;
+    border-color: var(--gray);
+    color: var(--light-gray);
+}
+
+.save {
+    background: var(--highlight-green);
+    color: var(--graphite);
+}
+
+.editActions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.likeBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    color: var(--medium-gray);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: color 0.15s ease;
+}
+
+.likeBtn svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* O ícone segue a cor do botão (o fill fixo do SVG some com o fundo).
+   Usa "> path" para atingir só o path visível, não o path da <mask>. */
+.likeBtn svg > path {
+    fill: currentColor;
+}
+
+.likeBtn:hover:not(:disabled) {
+    color: var(--offwhite);
+}
+
+.likeBtn.liked {
+    color: var(--highlight-green);
+}
+
+.likeBtn:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.replyBtn {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--medium-gray);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+.replyBtn:hover {
+    color: var(--offwhite);
+    text-decoration: underline;
+}
+
+.replies {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gray);
+}
+
+/* Respostas não têm borda inferior própria para não duplicar separadores */
+.reply {
+    border-bottom: none;
+    padding-bottom: 0;
+}

@@ -1,0 +1,150 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.tabBtn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--medium-gray);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    margin-bottom: -1px;
+}
+
+.tabBtn:hover {
+    color: var(--offwhite);
+}
+
+.tabActive {
+    color: var(--highlight-green);
+    border-bottom-color: var(--highlight-green);
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: var(--medium-gray);
+    flex: 1;
+    min-width: 240px;
+    transition: border-color 0.2s ease;
+}
+
+.searchBox:focus-within {
+    border-color: var(--highlight-green);
+}
+
+.searchBox input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--offwhite);
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.searchBox input::placeholder {
+    color: var(--medium-gray);
+}
+
+.sort {
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    color: var(--offwhite);
+    font-size: 14px;
+    font-family: inherit;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.sort:focus {
+    border-color: var(--highlight-green);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.message {
+    padding: 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.clear {
+    background: transparent;
+    border: none;
+    color: var(--highlight-green);
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.empty {
+    padding: 64px 48px;
+    text-align: center;
+    border: 1px dashed var(--gray);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.loadMore {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 16px;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

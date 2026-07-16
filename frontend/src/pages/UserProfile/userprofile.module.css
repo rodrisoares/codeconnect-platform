@@ -1,0 +1,136 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--light-gray);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.back:hover {
+    color: var(--highlight-green);
+}
+
+.header {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--highlight-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, var(--petrol-green), var(--graphite));
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-fallback {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-green);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.info-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.name {
+    font-size: 26px;
+    margin: 0;
+}
+
+.bio {
+    max-width: 620px;
+    line-height: 1.6;
+}
+
+.stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    color: var(--light-gray);
+    font-size: 15px;
+}
+
+.stats strong {
+    color: var(--offwhite);
+}
+
+.statLink {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.statLink:hover {
+    color: var(--highlight-green);
+}
+
+.sectionTitle {
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 12px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.empty {
+    padding: 48px;
+    text-align: center;
+    border: 1px dashed var(--gray);
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-top {
+        justify-content: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

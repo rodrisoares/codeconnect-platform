@@ -1,0 +1,62 @@
+/* Heading styles */
+.h1 {
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 150%;
+  color: var(--typography-color);
+  margin: 0;
+}
+
+.h2 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  margin: 0;
+    color: var(--typography-color);
+}
+
+.h3 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 150%;
+  color: var(--typography-color);
+}
+
+.h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.625rem 0;
+  color: var(--typography-color);
+}
+
+.h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  color: var(--typography-color);
+}
+
+.h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  color: var(--typography-color);
+}
+
+/* Body text style */
+.body {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  margin: 0;
+  color: var(--typography-color);
+}
+
+/* Bold text style */
+.bold {
+  font-weight: 700;
+  color: var(--typography-color);
+} 

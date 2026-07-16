@@ -1,0 +1,70 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--petrol-green);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 27px */
+    border-radius: 8px;
+    background: var(--highlight-green);
+    padding: 12px 16px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--highlight-green);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 27px */
+    border-radius: 8px;
+    background: transparent;
+    padding: 12px 16px;
+    cursor: pointer;
+    border: 1px solid var(--highlight-green);
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
+}
+
+.outline:hover,
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:active,
+.outline:active {
+    transform: translateY(1px);
+}
+
+.btn:focus-visible,
+.outline:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(129, 254, 136, 0.25);
+}
+
+.btn:disabled,
+.outline:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover,
+.outline:disabled:hover {
+    opacity: 0.5;
+}
+
+.btn:disabled:active,
+.outline:disabled:active {
+    transform: none;
+}

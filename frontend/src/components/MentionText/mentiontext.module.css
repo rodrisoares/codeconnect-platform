@@ -1,0 +1,9 @@
+.mention {
+    color: var(--highlight-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mention:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+.container {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, var(--petrol-green), var(--graphite));
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fallback {
+    font-weight: 700;
+    color: var(--highlight-green);
+    line-height: 1;
+}

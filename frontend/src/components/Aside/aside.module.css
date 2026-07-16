@@ -1,0 +1,172 @@
+.aside {
+    border-radius: 8px;
+    background: var(--dark-gray);
+    padding: 16px 16px 32px;
+    height: 100%;
+    flex: 0 0 200px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: flex-basis 0.2s ease, max-width 0.2s ease, padding 0.2s ease;
+}
+
+.toggle {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--gray);
+    color: var(--light-gray);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.toggle:hover {
+    color: var(--highlight-green);
+    border-color: var(--highlight-green);
+}
+
+.label {
+    white-space: nowrap;
+}
+
+.plus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside img {
+    max-width: 100%;
+    height: auto;
+}
+
+.aside nav {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.aside ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
+}
+
+/* Logo e botão Publicar ficam centralizados (os itens de menu são full-width) */
+.aside li:first-child {
+    align-self: center;
+}
+
+.aside li:nth-child(2) {
+    align-self: center;
+    margin-bottom: 12px;
+}
+
+/* Mantém o logout ancorado no rodapé do sidebar */
+.aside li:last-child {
+    margin-top: auto;
+}
+
+/* Colapso (apenas no desktop; no mobile o aside vira barra inferior) */
+@media (min-width: 1000px) {
+    .aside.collapsed {
+        flex-basis: 76px;
+        max-width: 76px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .aside.collapsed .toggle {
+        align-self: center;
+    }
+
+    /* Esconde os rótulos e centraliza os ícones */
+    .aside.collapsed .label {
+        display: none;
+    }
+
+    .aside.collapsed nav a {
+        justify-content: center;
+        padding: 9px 0;
+    }
+
+    /* Botão "+" (Publicar) sem a borda verde quando colapsado */
+    .aside.collapsed li:nth-child(2) a {
+        border: none;
+        background: transparent;
+        padding: 4px;
+    }
+}
+
+/* Transformar em rodapé com navigation tabs para telas menores que 1000px */
+@media (max-width: 999px) {
+    .aside {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        max-width: none;
+        border-radius: 0;
+        padding: 12px 16px;
+        background: var(--dark-gray);
+        border-top: 1px solid var(--gray);
+        z-index: 1000;
+        flex-direction: row;
+        overflow: visible;
+    }
+
+    .aside nav {
+        overflow: visible;
+    }
+
+    .aside ul {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+    }
+
+    /* No mobile os itens de menu voltam a ter largura automática */
+    .aside li {
+        align-self: auto;
+    }
+
+    .aside li {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Reseta a âncora do rodapé no modo mobile */
+    .aside li:last-child {
+        margin-top: 0;
+    }
+
+    /* Esconder logo e botão de publicar no mobile */
+    .aside li:first-child,
+    .aside li:nth-child(2) {
+        display: none;
+    }
+
+    /* O botão de recolher não faz sentido na barra inferior */
+    .toggle {
+        display: none;
+    }
+}

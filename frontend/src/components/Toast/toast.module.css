@@ -1,0 +1,98 @@
+.viewport {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background-color: var(--dark-gray);
+    border: 1px solid var(--gray);
+    border-left-width: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    color: var(--offwhite);
+    pointer-events: auto;
+    animation: slide-in 0.25s ease;
+}
+
+.error {
+    border-left-color: #ff6b6b;
+}
+
+.error .icon {
+    color: #ff6b6b;
+}
+
+.success {
+    border-left-color: var(--highlight-green);
+}
+
+.success .icon {
+    color: var(--highlight-green);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 4px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--medium-gray);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.close:hover {
+    color: var(--offwhite);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 520px) {
+    .viewport {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+    }
+
+    .toast {
+        min-width: 0;
+        max-width: none;
+    }
+}
