@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
@@ -59,6 +59,13 @@ async function bootstrap() {
     swaggerOptions: { withCredentials: true },
   });
 
-  await app.listen(process.env.PORT ?? 3000);
+  const port = process.env.PORT ?? 3000;
+  await app.listen(port);
+
+  Logger.log(`🚀 Aplicação rodando em: http://localhost:${port}`, 'Bootstrap');
+  Logger.log(
+    `📚 Swagger disponível em: http://localhost:${port}/api`,
+    'Bootstrap',
+  );
 }
 bootstrap();
