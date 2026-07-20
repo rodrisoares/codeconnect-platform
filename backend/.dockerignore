@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+.git
+.gitignore
+*.log
+# O banco de dev fica num volume próprio (/app/data); não copiamos o commitado.
+prisma/dev.db
+prisma/dev.db-journal
+# Uploads ficam em volume; não copiar arquivos locais (mantém só o .gitkeep).
+uploads/*
+!uploads/.gitkeep
+.env
+Dockerfile
+.dockerignore

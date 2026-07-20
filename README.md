@@ -71,11 +71,17 @@ O **Code Connect** oferece uma experiência completa de rede social para quem cr
 - **[Jest](https://jestjs.io/)**: Testes unitários.
 - **TypeScript** em todo o backend.
 
+### Infraestrutura
+- **[Docker](https://www.docker.com/)** + **[Docker Compose](https://docs.docker.com/compose/)**: Containerização e orquestração do frontend e backend.
+- **[nginx](https://nginx.org/)**: Serve o SPA em produção e faz proxy da API, mantendo front e API na mesma origem.
+
 ---
 
 ## ⚙️ Como Executar o Projeto
 
 O projeto tem duas partes que rodam juntas: o **backend** (API, porta `3000`) e o **frontend** (SPA, porta `5173`). Em desenvolvimento, o Vite faz proxy das rotas da API para o backend, deixando front e API na mesma origem.
+
+> 💡 **Prefere Docker?** Você pode subir tudo com um único comando, sem instalar Node localmente. Pule para a seção [🐳 Executando com Docker](#-executando-com-docker).
 
 ### Pré-requisitos
 
@@ -142,6 +148,46 @@ Após o seed, use qualquer um dos usuários criados (senha padrão `Code1234`):
 
 ---
 
+## 🐳 Executando com Docker
+
+Uma alternativa ao setup manual: sobe **frontend + backend** juntos com um único comando, sem precisar do Node.js instalado. O frontend é buildado e servido pelo **nginx**, que também faz proxy da API para o backend — assim tudo fica na **mesma origem** (`http://localhost:8080`), necessário para a autenticação por cookies `httpOnly`.
+
+### Pré-requisitos
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e em execução.
+
+### Passo a passo
+
+```bash
+# 1. (Opcional) defina os segredos JWT
+cp .env.example .env   # edite JWT_SECRET / JWT_REFRESH_SECRET
+
+# 2. Suba os containers (build + run)
+docker compose up --build
+```
+
+Acesse:
+
+- **App:** `http://localhost:8080`
+- **Swagger:** `http://localhost:8080/api`
+
+Na primeira subida o backend aplica as migrações e roda o **seed** automaticamente. Faça login com qualquer usuário de exemplo (senha `Code1234`), ex.: `rodrigo@codeconnect.dev`.
+
+### Comandos úteis
+
+```bash
+docker compose up --build -d   # sobe em segundo plano
+docker compose logs -f         # acompanha os logs
+docker compose down            # para os containers
+docker compose down -v         # para e APAGA banco/uploads (recomeça do zero)
+```
+
+O banco SQLite e os uploads ficam em **volumes nomeados**, então persistem entre `down`/`up`. O seed roda apenas na primeira execução.
+
+> ℹ️ A porta `3000` do backend **não** é exposta no host — o acesso é feito só pela porta `8080` (nginx), que faz o proxy para a API. Detalhes completos no [DOCKER.md](./DOCKER.md).
+
+---
+
 ## 📜 Scripts
 
 ### Backend (`/backend`)
@@ -171,6 +217,8 @@ Após o seed, use qualquer um dos usuários criados (senha padrão `Code1234`):
 
 ```
 codeconnect-platform/
-├── backend/     # API REST (NestJS + Prisma + SQLite)
-└── frontend/    # SPA (React + Vite + React Router)
+├── backend/              # API REST (NestJS + Prisma + SQLite) + Dockerfile
+├── frontend/             # SPA (React + Vite + React Router) + Dockerfile + nginx.conf
+├── docker-compose.yml    # Orquestra frontend + backend
+└── DOCKER.md             # Guia detalhado do setup com Docker
 ```

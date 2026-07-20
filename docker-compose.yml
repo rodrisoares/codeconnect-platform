@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      # Banco SQLite persistido no volume backend-data.
+      DATABASE_URL: "file:/app/data/dev.db"
+      # Segredos JWT. Defina valores fortes em .env (veja .env.example).
+      JWT_SECRET: "${JWT_SECRET:-troque-este-segredo}"
+      JWT_REFRESH_SECRET: "${JWT_REFRESH_SECRET:-troque-este-segredo-refresh}"
+      # O navegador só fala com o nginx (porta 8080), que faz proxy da API.
+      CORS_ORIGIN: "http://localhost:8080"
+      PORT: "3000"
+      # Popula o banco com dados de exemplo na primeira subida.
+      SEED: "true"
+    volumes:
+      - backend-data:/app/data
+      - backend-uploads:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend-data:
+  backend-uploads:
